@@ -1,14 +1,14 @@
-package com.hardtech.fileapi.controller;
+package com.hardtech.filesapi.controller;
 
 
-import com.hardtech.fileapi.entity.FileDetails;
-import com.hardtech.fileapi.service.FileDetailsServices;
+import com.hardtech.filesapi.entity.FileDetails;
+import com.hardtech.filesapi.service.FileDetailsServices;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseEntity;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
@@ -35,7 +35,7 @@ public class FileDetailsControllers {
 
     @PutMapping("/update/{oldId}")
     String updateFile(@PathVariable(name = "oldId") String id,
-                           @RequestParam("newFile") MultipartFile file) throws IOException {
+                      @RequestParam("newFile") MultipartFile file) throws IOException {
         return fileDetailsServices.update(id, file).getId();
     }
 
@@ -44,7 +44,7 @@ public class FileDetailsControllers {
         return fileDetailsServices.deleteFileDetails(id);
     }
 
-      @GetMapping("/download/{id}")
+    @GetMapping("/download/{id}")
     ResponseEntity<?> download(@PathVariable String id, HttpServletRequest request) {
         FileDetails f = fileDetailsServices.getFileDetails(id);
         try {

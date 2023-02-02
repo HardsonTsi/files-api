@@ -1,9 +1,8 @@
-package com.hardtech.fileapi.service;
+package com.hardtech.filesapi.service;
 
 
-
-import com.hardtech.fileapi.entity.FileDetails;
-import com.hardtech.fileapi.repositories.FileDetailsRepository;
+import com.hardtech.filesapi.entity.FileDetails;
+import com.hardtech.filesapi.repositories.FileDetailsRepository;
 import lombok.AllArgsConstructor;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.stereotype.Service;
@@ -23,7 +22,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class FileDetailsServices {
 
-            private final FileDetailsRepository fileDetailsRepository;
+    private final FileDetailsRepository fileDetailsRepository;
 
 
     public FileDetails upload(MultipartFile file) {
@@ -41,8 +40,9 @@ public class FileDetailsServices {
 
             fileDetails.setContentType(file.getContentType());
 
+            //Todo: Il faut changer le chemin suivant l'environnement
             String path =
-                    new File(System.getProperty("user.dir") + "/src/main/resources/" + uniqueName).getAbsolutePath();
+                    new File(System.getProperty("user.home") + "/" + uniqueName).getAbsolutePath();
             System.out.println(path);
 
             file.transferTo(new File(path));

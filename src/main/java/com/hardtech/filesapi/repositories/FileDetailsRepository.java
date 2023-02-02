@@ -1,7 +1,7 @@
-package com.hardtech.fileapi.repositories;
+package com.hardtech.filesapi.repositories;
 
 
-import com.hardtech.fileapi.entity.FileDetails;
+import com.hardtech.filesapi.entity.FileDetails;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface FileDetailsRepository extends JpaRepository<FileDetails, String> {

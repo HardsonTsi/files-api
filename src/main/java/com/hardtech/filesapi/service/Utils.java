@@ -1,8 +1,8 @@
-package com.hardtech.fileapi.service;
+package com.hardtech.filesapi.service;
 
 public class Utils {
- protected static final String DEV_LOCATION = "user.dir";
- protected static final String PROD_LOCATION= "user.home";
+    protected static final String DEV_LOCATION = "user.dir";
+    protected static final String PROD_LOCATION = "user.home";
 }
 
     
